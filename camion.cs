@@ -29,23 +29,29 @@ public class Camion : Car
     }
     public List<Colis> ColisList { get; set; }
 
+    public override void Initchecklist(){
+        base.Checklist = new Queue<Tache>();
+        base.Checklist.Enqueue(new Tache("Taux dalcoleemie"));
+        base.Checklist.Enqueue(new Tache("Colis charge?"));
+        base.Checklist.Enqueue(new Tache("Présence de permis"));
+        base.Checklist.Enqueue(new Tache("Essence remplis"));
+    }
 
-
-public void AfficherdernierColis()
-{
-    Stack<Colis> Colislis = new Stack<Colis>(ColisList);
+    public void AfficherdernierColis()
+    {
+        Stack<Colis> Colislis = new Stack<Colis>(ColisList);
 
         //Console.WriteLine("Dechargement");
-    //for (int i = ColisList.Count - 1; i >= 0; i--)
-    //{
-     //   Console.WriteLine($"Colis ID: {ColisList[i].Id}, Poids: {ColisList[i].Poids}");
-    //}
+        //for (int i = ColisList.Count - 1; i >= 0; i--)
+        //{
+        //   Console.WriteLine($"Colis ID: {ColisList[i].Id}, Poids: {ColisList[i].Poids}");
+        //}
 
-    foreach (var colis in Colislis)
-    {
-        Console.WriteLine($"Colis ID: {colis.Id}, Poids: {colis.Poids}, Fragile: {colis.IsFragile}");
+        foreach (var colis in Colislis)
+        {
+            Console.WriteLine($"Colis ID: {colis.Id}, Poids: {colis.Poids}, Fragile: {colis.IsFragile}");
+        }
     }
-}
 
 
 

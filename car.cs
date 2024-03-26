@@ -6,7 +6,7 @@ public class Car
     public string Marque { get; private set; }
     public int Annee { get; private set; }
     public Colors Couleur { get; set; }
-    public Queue<Tache> Checklist { get; private set; }
+    public Queue<Tache> Checklist { get; set; }
 
     public void StartEngine()
     {
@@ -36,15 +36,17 @@ public class Car
         Modele = modele;
         Annee = annee;
         Couleur = couleur;
+        Initchecklist();
+    }
+
+
+    public virtual void Initchecklist(){
         Checklist = new Queue<Tache>();
         Checklist.Enqueue(new Tache("Présence de la clé"));
         Checklist.Enqueue(new Tache("Présence de Ceinture"));
         Checklist.Enqueue(new Tache("Présence de permis"));
         Checklist.Enqueue(new Tache("Essence remplis"));
     }
-
-
-
     public void AskForChecklist()
     {
         foreach (var question in Checklist)
