@@ -8,6 +8,7 @@ public class Car
     public Colors Couleur { get; set; }
     public Queue<Tache> Checklist { get; set; }
 
+    public Queue<string> ElementNotDone { get; set; }
     public void StartEngine()
     {
         do
@@ -16,6 +17,14 @@ public class Car
             if (IsCheckListOk())
             {
                 Console.WriteLine("VROOOOOOOOOOOM VROOOOOOOOOOM");
+            }
+            else
+            {
+                Console.WriteLine("Checklist items not done:");
+                foreach (var item in ElementNotDone)
+                {
+                    Console.WriteLine(item);
+                }
             }
         }
         while (IsCheckListOk() == false);
@@ -40,12 +49,14 @@ public class Car
     }
 
 
-    public virtual void Initchecklist(){
+    public virtual void Initchecklist()
+    {
         Checklist = new Queue<Tache>();
         Checklist.Enqueue(new Tache("Présence de la clé"));
         Checklist.Enqueue(new Tache("Présence de Ceinture"));
         Checklist.Enqueue(new Tache("Présence de permis"));
         Checklist.Enqueue(new Tache("Essence remplis"));
+        ElementNotDone = new Queue<string>();
     }
     public void AskForChecklist()
     {
@@ -62,40 +73,15 @@ public class Car
 
     public bool IsCheckListOk()
     {
+        ElementNotDone.Clear(); // Clear previous elements
         foreach (var item in Checklist)
         {
-            if (item.isDone == false)
+            if (!item.isDone)
             {
-                Console.WriteLine($"cette element :{item.Nom} nest pas fait");
-                return false;
+                ElementNotDone.Enqueue(item.Nom);
             }
         }
-        return true;
-
-    }
-    public void Checklist3()
-    {
-        Console.Write("Avez-vous votre permis ? y/n");
-        string permisInput = Console.ReadLine().ToLower();
-        bool aPermis = permisInput == "y";
-        Console.Write("Avez-vous votre ceinture ? y/n");
-        string ceintureInput = Console.ReadLine().ToLower();
-        bool aCeinture = ceintureInput == "y";
-        Console.Write("Avez-vous votre cles ? y/n");
-        string ClesInput = Console.ReadLine().ToLower();
-        bool aCles = ClesInput == "y";
-
-        Console.WriteLine("\nChecklist:");
-
-        if (aPermis && aCeinture && aCles)
-        {
-            Console.WriteLine(" - Checklist ok");
-            StartEngine();
-        }
-        else
-        {
-            Console.WriteLine(" - Checklist: Non");
-        }
-
+        return ElementNotDone.Count == 0;
     }
 }
+
