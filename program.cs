@@ -10,14 +10,15 @@ internal class Program
         Colis colis3 = new Colis(3, 20, false);
         Colis colis4 = new Colis(4, 100, false);
         Console.WriteLine($"nom complet de ma voiture : {audi.NomComplet} Année de fabrication: {audi.Annee}");
+
         audi.StartEngine();
         Console.WriteLine($"nom complet de mon camion : {Scannia.NomComplet} Année de fabrication: {Scannia.Annee} poid max : {Scannia.ChargeMax} Litres");
-        Scannia.StartEngine();
+       // Scannia.StartEngine();
         Scannia.Charger(colis1);
         Scannia.Charger(colis2);
         Scannia.Charger(colis3);
         Scannia.Charger(colis4);
-
+        
         Scannia.AfficherdernierColis();
 
         Console.WriteLine(Scannia.ChargeActuelle);

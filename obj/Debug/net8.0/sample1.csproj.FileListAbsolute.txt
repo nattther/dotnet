@@ -26,3 +26,4 @@ C:\Users\Nathan-Efficom\Desktop\cours\algo\dotnet\bin\Debug\net8.0\sample1.dll
 C:\Users\Nathan-Efficom\Desktop\cours\algo\dotnet\bin\Debug\net8.0\sample1.pdb
 C:\Users\Nathan-Efficom\Desktop\cours\algo\dotnet\obj\Debug\net8.0\sample1.genruntimeconfig.cache
 C:\Users\Nathan-Efficom\Desktop\cours\algo\dotnet\obj\Debug\net8.0\ref\sample1.dll
+C:\Users\Nathan-Efficom\Desktop\cours\algo\dotnet\obj\Debug\net8.0\sample1.sourcelink.json

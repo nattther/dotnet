@@ -29,15 +29,24 @@ public class Camion : Car
     }
     public List<Colis> ColisList { get; set; }
 
+
+
 public void AfficherdernierColis()
 {
-    Console.WriteLine("Dechargement");
-    for (int i = ColisList.Count - 1; i >= 0; i--)
-    {
-        Console.WriteLine($"Colis ID: {ColisList[i].Id}, Poids: {ColisList[i].Poids}");
-    }
+    Stack<Colis> Colislis = new Stack<Colis>(ColisList);
 
+        //Console.WriteLine("Dechargement");
+    //for (int i = ColisList.Count - 1; i >= 0; i--)
+    //{
+     //   Console.WriteLine($"Colis ID: {ColisList[i].Id}, Poids: {ColisList[i].Poids}");
+    //}
+
+    foreach (var colis in Colislis)
+    {
+        Console.WriteLine($"Colis ID: {colis.Id}, Poids: {colis.Poids}, Fragile: {colis.IsFragile}");
+    }
 }
+
 
 
     private int GetPoidsTotal()
